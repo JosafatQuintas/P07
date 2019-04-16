@@ -1,0 +1,54 @@
+/*
+Josafat Quintas
+ CS 220
+Programming Project 07 – Pythagorean Triples
+ 	This program prompts the user to enter a limit and then generates all possibile Pythagorean Triples within the range of the limit.
+ Date:4/15/2019
+*/
+
+package p07;
+
+import java.util.Scanner;
+
+public class P07220Quintas {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		int tripplet = 0;
+		Object response;
+
+		do {
+
+			// Promts user for limits
+
+			System.out.print("enter an integer limit: ");
+			int n = input.nextInt();
+			System.out.println("Side 1	 Side 2	 Side 3");
+			System.out.println("------   ------  ------");
+
+			// Generates all numbers combinations under limits
+
+			for (int c = 1; c <= n; c++) {
+				for (int b = 1; b <= c; b++) {
+					for (int a = 1; a <= b; a++) {
+						// Checks to see if Pythagorean Triples and prints out if meets condition
+						if (a * a + b * b == c * c) {
+							System.out.println("  " + a + "	   " + b + "     " + c);
+							tripplet++;
+
+						}
+					}
+				}
+			}
+
+			// Prints total Pythagorean Triples
+
+			System.out.println("A total of " + tripplet + " tripplets were found." + "\n");
+			System.out.println("Enter Y or y to run again (anything else quits): \n");
+			response = input.next();
+		} while (((String) response).equalsIgnoreCase("Y"));
+
+	}
+
+}
